@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso al Mensajero</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-box, .message-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+        .message-box {
+            display: none;
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        .message {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Caja de inicio de sesión -->
+    <div class="login-box">
+        <h2>Introduce la Contraseña</h2>
+        <input type="password" id="password" placeholder="Contraseña">
+        <button onclick="verificarContraseña()">Abrir</button>
+        <p id="error-msg" class="error"></p>
+    </div>
+
+    <!-- Caja del mensaje -->
+    <div class="message-box" id="message-box">
+        <h2>¡Acceso Correcto ❤‍🔥!</h2>
+        <p class="message" id="message-content">Este es tu mensaje especial.</p>
+        <div class="image-container">
+            <img id="message-image" src="" alt="Mensaje Especial">
+        </div>
+        <button onclick="window.location.href='https://wa.me/qr/4XK5DU4N6QJHL1 ';">dale clip bonita!🥺</button>
+    </div>
+
+    <script>
+        const PASSWORD = "1110"; 
+        const MENSAJE = `Bb 🥺,
+
+Te extraño tanto… Estoy aquí pensando si debería ir a verte o llamarte. Perdón por no contestar antes, no vi tu llamada a tiempo. Sobre ese mensaje en la foto, créeme, no fue mi intención causarte más problemas, por eso dudé en responder.
+
+Quiero verte, abrazarte, estar contigo como antes. Por favor, escríbeme o llámame cuando puedas. Te necesito. Tú sabes que siempre estoy aquí para ti.
+
+Te amo. 
+Me muero por estar contigo y hacer todas esas cosas q nos imaginamos..te necesito.. y si tu ya lo pensaste y no quieres, q
+uieres seguir con tu vida te juro que ni vuelvo a molestarte.. quiero ir a la playa d noche,  tener una cita contigo y no solo una , muchas.... ir a un concierto de agua marina , armoni 10 y más y recorrer cada lugar para hacerte el amor muchas veces`; 
+        const IMAGEN = "bueno.jpg"; 
+
+        function verificarContraseña() {
+            const passwordInput = document.getElementById("password").value;
+            const errorMsg = document.getElementById("error-msg");
+            const loginBox = document.querySelector(".login-box");
+            const messageBox = document.getElementById("message-box");
+            const messageContent = document.getElementById("message-content");
+            const messageImage = document.getElementById("message-image");
+
+            if (passwordInput === PASSWORD) {
+
+                loginBox.style.display = "none";
+                messageBox.style.display = "block";
+                messageContent.textContent = MENSAJE;
+                messageImage.src = IMAGEN; 
+            } else {
+                errorMsg.textContent = "Contraseña incorrecta. Inténtalo de nuevo.";
+            }
+        }
+    </script>
+</body>
+</html>
